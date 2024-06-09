@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursor Play</title>
+    <link rel="icon" href="https://static.wikia.nocookie.net/iwbtb/images/4/4c/Cursor.png" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <style>
+
+        h1{
+            font-family: "Roboto", sans-serif;
+            font-weight: 600;
+            font-style: normal;
+
+            text-align: center;
+            width: 100%;
+        }
+
+        #Container{
+            display: flex;
+            justify-content: center;
+
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #CursorBoxes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20px;
+
+        }
+
+        .CursorBox {
+            background-color: rgb(255, 234, 209);
+            padding: 40px;
+            outline: 4px solid black;
+            border-radius: 10px;
+            margin: 10px;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .CursorBox:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.19);
+        }
+
+        #ShuffleButton{
+            background-color: rgb(255, 234, 209);
+            padding: 10px;
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        #ShuffleButton:hover{
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.19);
+        }
+
+    </style>
+</head>
+<body>
+    <div id="Container">
+
+        <h1>All cursor types:</h1>
+
+        <button id="ShuffleButton" onclick="ShuffleClick()">Shuffle</button>
+
+        <div id="CursorBoxes">
+            <div class="CursorBox" style="cursor: default;">
+                <h1>Default</h1>
+            </div>
+            <div class="CursorBox" style="cursor: auto;">
+                <h1>Auto</h1>
+            </div>
+            <div class="CursorBox" style="cursor: none;">
+                <h1>None</h1>
+            </div>
+            <div class="CursorBox" style="cursor: context-menu;">
+                <h1>Context Menu</h1>
+            </div>
+            <div class="CursorBox" style="cursor: help;">
+                <h1>Help</h1>
+            </div>
+            <div class="CursorBox" style="cursor: pointer;">
+                <h1>Pointer</h1>
+            </div>
+            <div class="CursorBox" style="cursor: progress;">
+                <h1>Progress</h1>
+            </div>
+            <div class="CursorBox" style="cursor: wait;">
+                <h1>Wait</h1>
+            </div>
+            <div class="CursorBox" style="cursor: cell;">
+                <h1>Cell</h1>
+            </div>
+            <div class="CursorBox" style="cursor: crosshair;">
+                <h1>Crosshair</h1>
+            </div>
+            <div class="CursorBox" style="cursor: text;">
+                <h1>Text</h1>
+            </div>
+            <div class="CursorBox" style="cursor: vertical-text;">
+                <h1>Vertical Text</h1>
+            </div>
+            <div class="CursorBox" style="cursor: alias;">
+                <h1>Alias</h1>
+            </div>
+            <div class="CursorBox" style="cursor: copy;">
+                <h1>Copy</h1>
+            </div>
+            <div class="CursorBox" style="cursor: move;">
+                <h1>Move</h1>
+            </div>
+            <div class="CursorBox" style="cursor: no-drop;">
+                <h1>No Drop</h1>
+            </div>
+            <div class="CursorBox" style="cursor: not-allowed;">
+                <h1>Not Allowed</h1>
+            </div>
+            <div class="CursorBox" style="cursor: grab;">
+                <h1>Grab</h1>
+            </div>
+            <div class="CursorBox" style="cursor: grabbing;">
+                <h1>Grabbing</h1>
+            </div>
+            <div class="CursorBox" style="cursor: all-scroll;">
+                <h1>All Scroll</h1>
+            </div>
+            <div class="CursorBox" style="cursor: col-resize;">
+                <h1>Column Resize</h1>
+            </div>
+            <div class="CursorBox" style="cursor: row-resize;">
+                <h1>Row Resize</h1>
+            </div>
+            <div class="CursorBox" style="cursor: n-resize;">
+                <h1>N Resize</h1>
+            </div>
+            <div class="CursorBox" style="cursor: e-resize;">
+                <h1>E Resize</h1>
+            </div>
+            <div class="CursorBox" style="cursor: s-resize;">
+                <h1>S Resize</h1>
+            </div>
+            <div class="CursorBox" style="cursor: w-resize;">
+                <h1>W Resize</h1>
+            </div>
+            <div class="CursorBox" style="cursor: ne-resize;">
+                <h1>NE Resize</h1>
+            </div>
+            <div class="CursorBox" style="cursor: nw-resize;">
+                <h1>NW Resize</h1>
+            </div>
+            <div class="CursorBox" style="cursor: se-resize;">
+                <h1>SE Resize</h1>
+            </div>
+            <div class="CursorBox" style="cursor: sw-resize;">
+                <h1>SW Resize</h1>
+            </div>
+            <div class="CursorBox" style="cursor: ew-resize;">
+                <h1>EW Resize</h1>
+            </div>
+            <div class="CursorBox" style="cursor: ns-resize;">
+                <h1>NS Resize</h1>
+            </div>
+            <div class="CursorBox" style="cursor: nesw-resize;">
+                <h1>NESW Resize</h1>
+            </div>
+            <div class="CursorBox" style="cursor: nwse-resize;">
+                <h1>NWSE Resize</h1>
+            </div>
+            <div class="CursorBox" style="cursor: zoom-in;">
+                <h1>Zoom In</h1>
+            </div>
+            <div class="CursorBox" style="cursor: zoom-out;">
+                <h1>Zoom Out</h1>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var shuffleButton = document.getElementById("ShuffleButton");
+
+        var shuffle = false;
+
+        function ShuffleClick(){
+            shuffle = !shuffle;
+
+            if (!shuffle){
+                document.body.style.cursor = 'default';
+            }
+        }
+        
+        const cursors = [
+            'default', 'auto', 'none', 'context-menu', 'help', 'pointer',
+            'progress', 'wait', 'cell', 'crosshair', 'text', 'vertical-text',
+            'alias', 'copy', 'move', 'no-drop', 'not-allowed', 'grab', 'grabbing',
+            'all-scroll', 'col-resize', 'row-resize', 'n-resize', 'e-resize',
+            's-resize', 'w-resize', 'ne-resize', 'nw-resize', 'se-resize',
+            'sw-resize', 'ew-resize', 'ns-resize', 'nesw-resize', 'nwse-resize',
+            'zoom-in', 'zoom-out'   
+        ];
+
+        let currentCursorIndex = 0;
+
+        function changeCursor() {
+            if (shuffle){
+
+                document.body.style.cursor = cursors[currentCursorIndex];
+    
+                currentCursorIndex = (currentCursorIndex + 1) % cursors.length;
+            }
+        }
+
+        setInterval(changeCursor, 0);
+    </script>
+
+</body>
+</html>
