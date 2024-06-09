@@ -78,6 +78,9 @@
             transform: scale(1.05);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.19);
         }
+        button{
+            margin: 5px;
+        }
 
     </style>
 </head>
@@ -87,6 +90,7 @@
         <h1>All cursor types:</h1>
 
         <button id="ShuffleButton" onclick="ShuffleClick()">Shuffle</button>
+        <button id="ShuffleButton" onclick="CircleClick()">Circle</button>
 
         <div id="CursorBoxes">
             <div class="CursorBox" style="cursor: default;">
@@ -205,11 +209,22 @@
         var shuffleButton = document.getElementById("ShuffleButton");
 
         var shuffle = false;
+        var circle = false;
 
         function ShuffleClick(){
             shuffle = !shuffle;
+            circle = false;
 
             if (!shuffle){
+                document.body.style.cursor = 'default';
+            }
+        }
+
+        function CircleClick(){
+            circle = !circle;
+            shuffle = false;
+
+            if (!circle){
                 document.body.style.cursor = 'default';
             }
         }
@@ -224,6 +239,11 @@
             'zoom-in', 'zoom-out'   
         ];
 
+        const circleCursors = [
+            'n-resize', 'sw-resize', 'e-resize', 'se-resize', 'n-resize', 'sw-resize',
+            'e-resize', 'se-resize'
+        ];
+
         let currentCursorIndex = 0;
 
         function changeCursor() {
@@ -235,7 +255,19 @@
             }
         }
 
+        let currentCursorCircleIndex = 0;
+
+        function changeCursorCircle() {
+            if (circle){
+
+                document.body.style.cursor = circleCursors[currentCursorCircleIndex];
+    
+                currentCursorCircleIndex = (currentCursorCircleIndex + 1) % circleCursors.length;
+            }
+        }
+
         setInterval(changeCursor, 0);
+        setInterval(changeCursorCircle, 50);
     </script>
 
 </body>
